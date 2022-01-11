@@ -1,6 +1,6 @@
-# 이티보드 스마트가로등 코딩 키트 (기본) 콘텐츠
+# 이티보드 스마트가로등 코딩 키트 (기본)
 
-* ET-Board Smart Light Coding Kit (Basic) Contents
+* ET-Board Smart Light Coding Kit (Basic)
 * 거리가 어두우면 가로등에 약한 불빛이 켜지고, 사람 또는 자동차가 접근하면 밝은 빛이 켜진다.
 * 조도센서(CDS), 초음파센서, 고휘도 LED
 </br></br>

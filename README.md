@@ -1,6 +1,6 @@
 # 이티보드 스마트가로등 코딩키트 기본 콘텐츠
 
-* ET-Board Smart Signal Light Basic Contents
+* ET-Board Smart Light Basic Contents
 </br></br>
 
   

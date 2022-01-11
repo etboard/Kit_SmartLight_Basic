@@ -6,7 +6,7 @@
 
 //초음파 센서를 사용할 ET-보드 핀번호 설정
 const int echoPin = D7;  // 초음파 수신부
-const int trigPin = D8;  // 초음파 송신부 
+const int trigPin = D8;  // 초음파 송신부
 const int cdsPin = A7;   // 조도 센서
 
 const int ledPin1 = D3;  // 가로등 1번 LED
@@ -21,10 +21,10 @@ void setup() {
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
   // 조도 센서를 입력모드로 설정
-  pinMode(cdsPin, INPUT);   
+  pinMode(cdsPin, INPUT);
   // LED 출력모드 설정
-  pinMode(ledPin1, OUTPUT); 
-  pinMode(ledPin2, OUTPUT); 
+  pinMode(ledPin1, OUTPUT);
+  pinMode(ledPin2, OUTPUT);
 }
 
 void loop() {
@@ -37,9 +37,9 @@ void loop() {
   digitalWrite(trigPin, LOW);
 
   // echoPin 이 HIGH를 유지한 시간 저장
-  unsigned long duration = pulseIn(echoPin, HIGH); 
+  unsigned long duration = pulseIn(echoPin, HIGH);
   // HIGH 였을 때 시간(초음파 송수신 시간)을 기준으로 거리를 계산
-  float distance = ((float)(340 * duration) / 10000) / 2;  
+  float distance = ((float)(340 * duration) / 10000) / 2;
 
   // 조도 센서 입력 확인
   int cdssensorValue = analogRead(cdsPin);
@@ -52,7 +52,7 @@ void loop() {
     }
   Serial.print("  조도 센서 : ");
   Serial.println(cdssensorValue);
-    
+
   // 장애물 감지 여부에 따라 LED2 제어
   if (distance < usw_threshold) { // 거리가 usw_threshold 이상이면
     digitalWrite(ledPin2, HIGH); // LED 켜짐
@@ -63,7 +63,7 @@ void loop() {
   Serial.print(distance);
   Serial.println("cm");
   Serial.println("--------------------");
-  
+
   delay(300);
 }
 
@@ -71,5 +71,5 @@ void loop() {
 //┌────────────────────────────────┐
 //│                                                      │
 //│     (주)한국공학기술연구원 http://et.ketri.re.kr        │
-//│                                                      │ 
+//│                                                      │
 //└────────────────────────────────┘

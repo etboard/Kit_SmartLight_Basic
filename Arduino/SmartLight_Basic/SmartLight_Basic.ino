@@ -5,7 +5,10 @@
   * CopyRight    : (주)한국공학기술연구원(www.ketri.re.kr)
   * Created Date :
   * Modified     : 2022.01.12 : SCS : 소스 크린징
+  * Modified     : 2022.10.03 : SCS : support arduino uno with ET-Upboard
  ******************************************************************************************/
+
+#include "pins_arduino.h"           // support arduino uno with ET-Upboard
 
 //초음파 센서를 사용할 ET-보드 핀번호 설정
 const int echoPin = D8;  // 초음파 수신부

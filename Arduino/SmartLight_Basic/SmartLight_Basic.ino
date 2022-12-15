@@ -6,6 +6,7 @@
   * Created Date :
   * Modified     : 2022.01.12 : SCS : 소스 크린징
   * Modified     : 2022.10.03 : SCS : support arduino uno with ET-Upboard
+  * Modified     : 2022.12.15 : YSY : pin No, Serial.begin
  ******************************************************************************************/
 
 #include "pins_arduino.h"           // support arduino uno with ET-Upboard
@@ -13,10 +14,10 @@
 //초음파 센서를 사용할 ET-보드 핀번호 설정
 const int echoPin = D8;  // 초음파 수신부
 const int trigPin = D9;  // 초음파 송신부
-const int cdsPin  = A7;  // 조도 센서
+const int cdsPin  = A3;  // 조도 센서
 
-const int ledPin1 = D3;  // 가로등 1번 LED
-const int ledPin2 = D4;  // 가로등 2번 LED
+const int ledPin1 = D2;  // 가로등 1번 LED
+const int ledPin2 = D3;  // 가로등 2번 LED
 
 const int cds_threshold = 300;  // 조도센서 임계치
 const int usw_threshold = 30;   // 초음파센서 임계치
@@ -25,7 +26,7 @@ const int usw_threshold = 30;   // 초음파센서 임계치
 void setup()
 //==========================================================================================
 {
-  Serial.begin(57600);
+  Serial.begin(115200);
 
   // 초음파 센서 모드설정 : trigPin를 출력모드로 설정, echoPin를 입력모드로 설정
   pinMode(trigPin, OUTPUT);

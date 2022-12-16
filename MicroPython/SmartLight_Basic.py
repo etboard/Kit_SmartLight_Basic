@@ -5,7 +5,9 @@
 # CopyRight    : (주)한국공학기술연구원(www.ketri.re.kr)
 # Created Date : 2022.02.08
 # Reference    :
-# Modified     :
+# Modified     : 2022.11.23 : YSY : 소스 클린징
+# Modified     : 2022.12.16 : YSY : 조도값 수정, LED1,2 변경, 주석 수정
+# Modified     : 
 # ******************************************************************************************
 
 # import
@@ -40,26 +42,29 @@ def loop():
     
     duration = time_pulse_us(ECHO, HIGH)           # echoPin 이 HIGH 를 유지한 시간 저장
     distance = ((34 * duration) / 1000) / 2        # HIGH 였을 때 시간(초음파 송수신 시간)을 기준으로 거리를 계산
-    cdsValue = (cds.read()) / 10                   # 조도 센서 입력 확인
+    cdsValue = cds.read()                          # 조도 센서 입력 확인
     
-    #주변 밝기에 따라 따라 LED1 제어
-    if( distance < 10 ) :                          # 조도 센서값이 10 이하면
+    
+    #  주변 밝기에 따라 LED1 제어
+    if( cdsValue < 800 ) :                         # 조도 센서값이 800 미만이면
         led1.value(HIGH)                           # LED 켜짐
     else :
         led1.value(LOW)                            # LED 꺼짐
-        
-    print("초음파 센서  : ", distance)
-    
-    # 장애물 감지 여부에 따라 LED2 제어
-    if( cdsValue < 300 ) :                         # 조도 센서값이 300 이하면
-        led2.value(HIGH)                           # LED 켜짐
-    else :
-        led2.value(LOW)                            # LED 꺼짐
     
     print("조도 센서  : ", cdsValue)
     print("---------------------")
     
-    time.sleep(0.1)                                
+    #장애물 감지 여부에 따라 LED2 제어
+    if( distance < 10 ) :                          # 초음파 센서값이 10 이하면
+        led2.value(HIGH)                           # LED 켜짐
+    else :
+        led2.value(LOW)                            # LED 꺼짐
+        
+    print("초음파 센서  : ", distance)
+    
+    
+    
+    time.sleep(0.3)                                
 
 
 if __name__ == "__main__":

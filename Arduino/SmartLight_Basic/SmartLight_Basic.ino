@@ -5,22 +5,21 @@
   * CopyRight    : (주)한국공학기술연구원(www.ketri.re.kr)
   * Created Date :
   * Modified     : 2022.01.12 : SCS : 소스 크린징
-  * Modified     : 2022.10.03 : SCS : support arduino uno with ET-Upboard
-  * Modified     : 2022.12.15 : YSY : pin No, Serial.begin
+  * Modified     : 2022.11.23 : YSY : 소스 크린징, serial.begin(57600->115200),
+  * Modified     : 2022.12.16 : 조도, 초음파 센서 임계치 수정, 주석 수정
+  * Modified     :
  ******************************************************************************************/
 
-#include "pins_arduino.h"           // support arduino uno with ET-Upboard
-
 //초음파 센서를 사용할 ET-보드 핀번호 설정
-const int echoPin = D8;  // 초음파 수신부
-const int trigPin = D9;  // 초음파 송신부
-const int cdsPin  = A3;  // 조도 센서
+const int echoPin = D8;                   // 초음파 수신부
+const int trigPin = D9;                   // 초음파 송신부
+const int cdsPin  = A3;                   // 조도 센서
 
-const int ledPin1 = D2;  // 가로등 1번 LED
-const int ledPin2 = D3;  // 가로등 2번 LED
+const int ledPin1 = D2;                   // 가로등 1번 LED
+const int ledPin2 = D3;                   // 가로등 2번 LED
 
-const int cds_threshold = 300;  // 조도센서 임계치
-const int usw_threshold = 30;   // 초음파센서 임계치
+const int cds_threshold = 800;            // 조도센서 임계치
+const int usw_threshold = 10;             // 초음파센서 임계치
 
 //==========================================================================================
 void setup()
@@ -62,26 +61,26 @@ void loop()
   int cdssensorValue = analogRead(cdsPin);
 
   // 주변 밝기에 따라 따라 LED1 제어
-  if (cdssensorValue < cds_threshold) // 조도 센서값이 cds_threshold 이상이면
+  if (cdssensorValue < cds_threshold)     // 조도 센서값이 cds_threshold 이하이면
   {
-    digitalWrite(ledPin1, HIGH);     // LED 켜짐
+    digitalWrite(ledPin1, HIGH);          // LED 켜짐
   }
   else
   {
-    digitalWrite(ledPin1, LOW);      // LED 꺼짐
+    digitalWrite(ledPin1, LOW);           // LED 꺼짐
   }
 
   Serial.print("  조도 센서 : ");
   Serial.println(cdssensorValue);
 
   // 장애물 감지 여부에 따라 LED2 제어
-  if (distance < usw_threshold)    // 거리가 usw_threshold 이상이면
+  if (distance < usw_threshold)           // 거리가 usw_threshold 이하이면
   {
-    digitalWrite(ledPin2, HIGH);  // LED 켜짐
+    digitalWrite(ledPin2, HIGH);          // LED 켜짐
   }
   else
   {
-    digitalWrite(ledPin2, LOW);   // LED 꺼짐
+    digitalWrite(ledPin2, LOW);           // LED 꺼짐
   }
 
   Serial.print("초음파 센서 : ");

@@ -63,7 +63,7 @@ def loop():
     # echo_pin이 HIGH 를 유지한 시간 저장
     duration = time_pulse_us(echo_pin, HIGH)      
     
-    # HIGH 였을 때 시간(초음파 송수신 시간)을 기준으로 거리르 계산
+    # HIGH 였을 때 시간(초음파 송수신 시간)을 기준으로 거리를 계산
     distance = ((34 * duration) / 1000) / 2
     print("초음파 센서  : ", distance, "cm")
     

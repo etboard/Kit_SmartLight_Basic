@@ -10,6 +10,7 @@
   * Modified     : 2022.12.19 : YSY : ledpin->led, 주석수정
   * Modified     : 2022.12.21 : YSY : 변수 명명법 통일
   * Modified     : 2023.03.14 : PEJ : 주석 길이 수정
+  * Modified     : 2023.10.26 : PEJ : 녹색 LED 핀 변경
  *****************************************************************************************/
  
 //-----------------------------------------------------------------------------------------
@@ -19,8 +20,8 @@ const int cds_pin  = A3;                    // 조도 센서
 const int echo_pin = D8;                    // 초음파 센서 수신부
 const int trig_pin = D9;                    // 초음파 센서 송신부
 
-const int green_led = D2;                   // 가로등 녹색 LED
 const int blue_led  = D3;                   // 가로등 파란색 LED
+const int green_led = D4;                   // 가로등 녹색 LED
 
 const int cds_threshold = 800;              // 조도 센서 임계치
 const int usw_threshold = 10;               // 초음파 센서 임계치

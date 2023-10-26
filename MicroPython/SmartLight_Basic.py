@@ -10,6 +10,7 @@
 # Modified     : 2022.12.19 : YSY : 조도센서 입력 확인값 수정, 센서 임계값 추가. 주석수정
 # Modified     : 2022.12.21 : YSY : 변수 명명법 통일
 # Modified     : 2023.03.14 : PEJ : 주석 길이 수정
+# Modified     : 2023.10.26 : PEJ : 녹색 LED 핀 변경
 # *****************************************************************************************
 
 # import
@@ -26,8 +27,8 @@ cds_pin  = ADC(Pin(A3))                            # 조도 센서
 echo_pin = Pin(D8)                                 # 초음파 센서 수신부
 trig_pin = Pin(D9)                                 # 초음파 센서 송신부                
 
-green_led = Pin(D2)                                # 가로등 녹색 LED
 blue_led  = Pin(D3)                                # 가로등 파란색 LED
+green_led = Pin(D4)                                # 가로등 녹색 LED
 
 cds_threshold = 800                                # 조도 센서 임계치
 usw_threshold = 10                                 # 초음파 센서 임계치
